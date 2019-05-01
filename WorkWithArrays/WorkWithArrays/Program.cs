@@ -16,6 +16,26 @@ namespace WorkWithArrays
 {
 	class Program
 	{
+		public static int coupleOfNumbers(int[] arr)
+		{
+			int couple = 0;
+
+			for (int i = 0; i < arr.Length-1; i++)
+			{
+				if (arr[i] % 3 == 0 && arr[i + 1] % 3 != 0)
+				{
+					couple++;
+				}
+				else if (arr[i] % 3 != 0 && arr[i + 1] % 3 == 0)
+				{
+					couple++;
+				}
+			}
+
+
+			return couple;
+		}
+
 		static void Main(string[] args)
 		{
 			int[] array = new int[20];
@@ -26,13 +46,13 @@ namespace WorkWithArrays
 				array[i] = rand.Next(-10000, 10000);
 			}
 
-			// написать код
+			//int[] array = { 6, 2, 9, -3, 6, };
 
-			for (int i = 0; i < array.Length; i++)
-			{
-				Console.WriteLine($"{array[i]} ");
-			}
-			Console.ReadKey();
+			Console.WriteLine($"Количество пар элементов массива, в которых только одно число делится на три - {coupleOfNumbers(array)}");
+
+			
+
+
 
 		}
 	}
