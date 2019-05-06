@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneDimensionalArray
+namespace NewArrayLib
 {
-	/// <summary>
-	/// Класс для работы с одномерными массивами
-	/// </summary>
-	class NewArray
-	{
+    public class NewArray
+    {
 		public int[] arr;
 		Random rand = new Random();
+		Dictionary<int, int> dList = new Dictionary<int, int>();
 
 
 		/// <summary>
@@ -70,7 +68,7 @@ namespace OneDimensionalArray
 		public int[] InverseToNewArray()
 		{
 			int[] newArr = (int[])arr.Clone();
-			
+
 			for (int i = 0; i < newArr.Length; i++)
 			{
 				newArr[i] = newArr[i] * -1;
@@ -86,7 +84,7 @@ namespace OneDimensionalArray
 		/// <returns></returns>
 		public int[] Multi(int multiplicator)
 		{
-			
+
 			for (int i = 0; i < arr.Length; i++)
 			{
 				arr[i] = arr[i] * multiplicator;
@@ -124,6 +122,31 @@ namespace OneDimensionalArray
 			return maxCount;
 		}
 
-		
+		public Dictionary<int, int> CountOfValue()
+		{
+			
+			for (int i = 0; i < arr.Length; i++)
+			{
+				dList.Add(1, arr[i]);
+			}
+
+			ICollection<int> keys = dList.Keys;
+
+			//int temp1 = dList[1];
+			//int temp2 = 0;
+
+			for (int i = 0; i < keys.Count; i++)
+			{
+				for (int j = 0; j < arr.Length; j++)
+				{
+					if (dList[i] == arr[i])
+					{
+						dList[i]++;
+					}
+				}
+			}
+
+			return dList;
+		}
 	}
 }
