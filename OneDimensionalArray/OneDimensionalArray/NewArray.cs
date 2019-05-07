@@ -23,6 +23,7 @@ namespace OneDimensionalArray
 			for (int i = 0; i < a; i++)
 			{
 				arr[i] = rand.Next(1, 10000);
+				//arr[i] = 5;
 			}
 		}
 
@@ -122,23 +123,44 @@ namespace OneDimensionalArray
 			return maxCount;
 		}
 
+		/// <summary>
+		/// Подсчёт кол-ва вхождений элементов в массив
+		/// </summary>
+		/// <returns></returns>
 		public Dictionary<int, int> CountOfValue()
 		{
-			int countOf = 0;
-
 			for (int i = 0; i < arr.Length; i++)
 			{
-				for (int j = 0; j < arr.Length; j++)
+				if (dList.TryGetValue(arr[i], out int a))
 				{
-					if (arr[i] == arr[j])
-					{
-						countOf++;
-						dList.Add(arr[i], countOf);
-					}
+					dList[arr[i]] = ++a;
 				}
-				countOf = 0;
+				else
+				{
+					dList.Add(arr[i], 1);
+				}
 			}
 			
+			
+			
+			//for (int i = 0; i < arr.Length; i++)
+			//{
+			//	if (!dList.ContainsKey(arr[i]))
+			//	{
+			//		dList.Add(arr[i], 1);
+			//	}
+			//	else if(dList.ContainsKey(arr[i]))
+			//	{
+			//		foreach (int value in dList.Values.ToList())
+			//		{
+			//			dList[value] = value + 1;
+			//		}
+			//	}
+			//}
+
+			
+			
+
 			return dList;
 		}
 	}

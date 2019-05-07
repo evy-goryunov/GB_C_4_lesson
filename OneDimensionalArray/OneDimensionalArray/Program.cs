@@ -23,7 +23,7 @@ namespace OneDimensionalArray
 	{
 		static void Main(string[] args)
 		{
-			NewArray nA = new NewArray(5);
+			NewArray nA = new NewArray(5, 45, 5);
 
 			for (int i = 0; i < nA.arr.Length; i++)
 			{
