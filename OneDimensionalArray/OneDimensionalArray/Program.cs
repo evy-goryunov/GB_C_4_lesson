@@ -46,6 +46,12 @@ namespace OneDimensionalArray
 
 			int max = nA.MaxCount();
 			Console.WriteLine($"кол-во максимальных элементов в массиве {max}");
+
+			Dictionary<int, int> dL = nA.CountOfValue();
+			foreach (KeyValuePair<int, int> keyValue in dL)
+			{
+				Console.WriteLine(keyValue.Key + " - " + keyValue.Value);
+			}
 		}
 	}
 }
